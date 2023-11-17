@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+void find_second_largest(int arr[], int n) {
+    if (n < 2) { printf("Array should have at least two elements.\n"); return; }
+
+    int first = arr[0], second = arr[1];
+    for (int i = 2; i < n; i++) if (arr[i] > first) second = first, first = arr[i]; else if (arr[i] > second && arr[i] != first) second = arr[i];
+    printf("Second largest: %d\n", second);
+}
+
+int main() {
+    int n;
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+
+    int arr[n];
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; scanf("%d", &arr[i++]));
+    find_second_largest(arr, n);
+
+    return 0;
+}
