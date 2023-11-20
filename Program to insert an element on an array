@@ -1,0 +1,23 @@
+#include <stdio.h>
+#define MAX_SIZE 100
+void insertElement(int arr[], int *size, int element, int position) {
+    if (*size < MAX_SIZE && position >= 0 && position <= *size)
+        for (int i = (*size)++; i > position; --i) arr[i] = arr[i - 1];
+    else
+        puts("Invalid insertion.");
+}
+int main() {
+    int arr[MAX_SIZE] = {10, 20, 30}, size = 3;
+    int element, position;
+
+    printf("Original Array: %d %d %d\n", arr[0], arr[1], arr[2]);
+    printf("Enter element to insert: ");
+    scanf("%d", &element);
+    printf("Enter position to insert: ");
+    scanf("%d", &position);
+    printf("Array after insertion: ");
+    insertElement(arr, &size, element, position);
+    for (int i = 0; i < size; printf("%d ", arr[i++]));
+    printf("\n");
+    return 0;
+}
