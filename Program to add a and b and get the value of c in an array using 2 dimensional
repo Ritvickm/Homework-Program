@@ -1,0 +1,28 @@
+#include <stdio.h>
+#define MAX_ROWS 100
+#define MAX_COLS 100
+int main() {
+    int rows, cols;
+    printf("Enter the number of rows and columns: ");
+    scanf("%d %d", &rows, &cols);
+    if (rows <= 0 || cols <= 0 || rows > MAX_ROWS || cols > MAX_COLS) {
+        printf("Invalid dimensions. Exiting...\n");
+        return 1;
+    }
+    int a, b;
+    printf("Enter values 'a' and 'b': ");
+    scanf("%d %d", &a, &b);
+
+    int array[MAX_ROWS][MAX_COLS];
+
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < cols; j++)
+            array[i][j] = a + b;
+    printf("Resulting 2D array (c = a + b):\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++)
+            printf("%d\t", array[i][j]);
+        printf("\n");
+    }
+    return 0;
+}
